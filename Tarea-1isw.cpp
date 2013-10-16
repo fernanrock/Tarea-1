@@ -2,6 +2,7 @@
 #include<stdio.h>
 #include<math.h>
 #include <cstdio>
+#include <time.h>
 using namespace std;
 
 int main()
@@ -9,12 +10,15 @@ int main()
 int n, i, max, min;
 float integral=0;
 int seleccion,repetir=1;
+time_t tSac = time(NULL);  
+struct tm* pt1 = localtime(&tSac);
+
+
  int m;
          cout<<" **Menu** ";
     cout<<"\n1. Ingresar Polinomio";
-    //cout<<"\n2. Ingresar intervalos de la integral";
-    cout<<"\n2. Graficar";
-    cout<<"\n3. Salir "<<endl<<endl;
+    cout<<"\n2. Informacion";
+    cout<<"\n4. Salir "<<endl<<endl;
     cout<<"Elija una opcion:";
     cin>>m;
     cout<<endl;
@@ -71,14 +75,32 @@ case 1:
                               integral=integral + (1.0*x[i]/(i+1))* pow(max,i+1);
                    }
            cout<<integral<<endl;
-          
+        
+         
          break;
          }
                       
+           
+          
+         
+         break;
 
          
 case 2:
-     cout<<"Entraste en Graficar: "<<endl;
+     cout<<"Informacion de los integrantes: "<<endl;
+     cout<<"Fernando Guerrero Munoz"<<endl;
+     cout<<"David Munoz Munoz"<<endl;
+     
+        cout << "\n\n\t\tHora actual = " << pt1->tm_hour << ":" << pt1->tm_min << ":"
+                       << pt1->tm_sec << endl;
+        cout << "\t\tFecha actual= " << pt1->tm_mday << "-" << pt1->tm_mon+1 << "-"
+                       << pt1->tm_year+1900 << endl;
+
+        cout<< "\n\n\t\tHora de compilacion: " __TIME__<<endl;
+        cout<< "\n\t\tFecha de compilacion: " __DATE__<<endl;
+        
+     
+return 0;
      break;
      case 4:cout<<"Ya esta fuera"<<endl;
      
@@ -88,10 +110,4 @@ case 2:
      cin.ignore(); 
      return 0;
 }
-} 
-
-
-
-
-
-
+}
